@@ -7,18 +7,27 @@ int main()
     printf("* Welcome to our guessing game *\n");
     printf("**************************************************************\n");
 
-    int numerosecreto = 42;
+    int secretnumber = 42;
+    int guess;
 
-    int chute;
+    printf("What's your guess? ");
+    scanf("%d", &guess);
+    printf("Your guess was %d\n", guess);
 
-    printf("Qual é o seu chute? ");
-    scanf("%d", &chute);
-    printf("Seu chute foi %d\n", chute);
-
-    if (numerosecreto == chute)
+    if (secretnumber == guess)
     {
-        printf("Parabéns, você acertou o chute!\n");
-    }else{
-        printf("Que pena, você errou!\n");
+        printf("Congratulations, you guessed the correct number!!\n");
+    }
+    else
+    {
+
+        if (guess > secretnumber)
+        {
+            printf("Your guess was higher than the correct value.\n");
+        }
+        if (guess < secretnumber)
+        {
+            printf("Your guess was lower than the correct value.\n");
+        }
     }
 }
