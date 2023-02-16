@@ -1,20 +1,22 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main()
 {
-    // imprime o cabeçalho do nosso jogo
+    // print game header
     printf("**************************************************************\n");
     printf("* Welcome to our guessing game *\n");
     printf("**************************************************************\n");
 
     int secretnumber = 42;
-    int guess;
+    int guess = 0;
+    bool sucess = guess == secretnumber;
 
     printf("What's your guess? ");
     scanf("%d", &guess);
     printf("Your guess was %d\n", guess);
 
-    if (secretnumber == guess)
+    if (sucess = true)
     {
         printf("Congratulations, you guessed the correct number!!\n");
     }
