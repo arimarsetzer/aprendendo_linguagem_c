@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 
 int main()
 {
@@ -10,13 +9,14 @@ int main()
 
     int secretnumber = 42;
     int guess = 0;
-    bool sucess = guess == secretnumber;
 
     printf("What's your guess? ");
     scanf("%d", &guess);
     printf("Your guess was %d\n", guess);
 
-    if (sucess = true)
+    int sucess = (guess == secretnumber);
+
+    if (sucess)
     {
         printf("Congratulations, you guessed the correct number!!\n");
     }
