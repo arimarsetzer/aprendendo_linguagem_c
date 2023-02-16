@@ -10,26 +10,34 @@ int main()
     int secretnumber = 42;
     int guess = 0;
 
-    printf("What's your guess? ");
-    scanf("%d", &guess);
-    printf("Your guess was %d\n", guess);
-
-    int sucess = (guess == secretnumber);
-
-    if (sucess)
+    for (int i = 1; i <= 3; i++)
     {
-        printf("Congratulations, you guessed the correct number!!\n");
-    }
-    else
-    {
+        printf("\n");
+        printf("Guess %d of 3\n", i);
+        printf("What's your guess? ");
 
-        if (guess > secretnumber)
+        scanf("%d", &guess);
+        printf("Your guess was %d\n", guess);
+
+        int sucess = (guess == secretnumber);
+
+        if (sucess)
         {
-            printf("Your guess was higher than the correct value.\n");
+            printf("Congratulations, you guessed the correct number!!\n");
         }
-        if (guess < secretnumber)
+        else
         {
-            printf("Your guess was lower than the correct value.\n");
+
+            if (guess > secretnumber)
+            {
+                printf("Your guess was higher than the correct value.\n");
+            }
+            if (guess < secretnumber)
+            {
+                printf("Your guess was lower than the correct value.\n");
+            }
         }
     }
+    printf("\n");
+    printf("Game over!!\n");
 }
