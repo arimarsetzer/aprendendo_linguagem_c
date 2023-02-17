@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define GUESSING_NUMBER 5
+
 int main()
 {
     // print game header
@@ -10,10 +12,10 @@ int main()
     int secretnumber = 42;
     int guess = 0;
 
-    for (int i = 1; i <= 3; i++)
+    for (int i = 1; i <= GUESSING_NUMBER; i++)
     {
         printf("\n");
-        printf("Guess %d of 3\n", i);
+        printf("Guess %d of %d\n", i, GUESSING_NUMBER);
         printf("What's your guess? ");
 
         scanf("%d", &guess);
