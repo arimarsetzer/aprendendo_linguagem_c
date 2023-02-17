@@ -24,7 +24,8 @@ int main()
         if (guess < 0)
         {
             printf("You can't guess negative number!\n");
-            break;
+            i--;
+            continue;
         }
 
         int sucess = (guess == secretnumber);
