@@ -21,24 +21,29 @@ int main()
         scanf("%d", &guess);
         printf("Your guess was %d\n", guess);
 
+        if (guess < 0)
+        {
+            printf("You can't guess negative number!\n");
+            break;
+        }
+
         int sucess = (guess == secretnumber);
+        int higher = guess > secretnumber;
+        int smaller = guess < secretnumber;
 
         if (sucess)
         {
             printf("Congratulations, you guessed the correct number!!\n");
             break;
         }
+
+        else if (higher)
+        {
+            printf("Your guess was higher than the correct value.\n");
+        }
         else
         {
-
-            if (guess > secretnumber)
-            {
-                printf("Your guess was higher than the correct value.\n");
-            }
-            if (guess < secretnumber)
-            {
-                printf("Your guess was lower than the correct value.\n");
-            }
+            printf("Your guess was lower than the correct value.\n");
         }
     }
     printf("\n");
