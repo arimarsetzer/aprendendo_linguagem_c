@@ -24,6 +24,7 @@ int main()
         if (sucess)
         {
             printf("Congratulations, you guessed the correct number!!\n");
+            break;
         }
         else
         {
