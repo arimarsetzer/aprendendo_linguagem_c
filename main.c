@@ -12,7 +12,7 @@ int main()
     int guess;
     int tries = 1;
 
-    int points = 1000;
+    double points = 1000;
 
     while (1)
     {
@@ -48,11 +48,11 @@ int main()
         }
 
         tries++;
-        int lostpoints = (guess - secretnumber) / 2;
+        double lostpoints = (guess - secretnumber) / 2.0;
         points = points - lostpoints;
     }
     printf("\n");
     printf("Game over!!\n");
     printf("You won in the %d attempt!\n", tries);
-    printf("Total points: %d\n", points);
+    printf("Total points: %f\n", points);
 }
