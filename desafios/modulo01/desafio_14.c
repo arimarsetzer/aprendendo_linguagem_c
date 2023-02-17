@@ -2,7 +2,7 @@
 
 int main()
 {
-    // imprime o cabeçalho do nosso jogo
+    // print header
     printf("**************************************************************\n");
     printf("* Calculadora de multiplicação *\n");
     printf("**************************************************************\n");
