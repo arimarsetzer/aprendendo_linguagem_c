@@ -54,5 +54,5 @@ int main()
     printf("\n");
     printf("Game over!!\n");
     printf("You won in the %d attempt!\n", tries);
-    printf("Total points: %f\n", points);
+    printf("Total points: %.2f\n", points);
 }
