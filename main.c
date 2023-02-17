@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -48,7 +49,8 @@ int main()
         }
 
         tries++;
-        double lostpoints = (guess - secretnumber) / (double)2;
+        double lostpoints = abs(guess - secretnumber) / (double)2;
+
         points = points - lostpoints;
     }
     printf("\n");
