@@ -48,7 +48,7 @@ int main()
         }
 
         tries++;
-        double lostpoints = (guess - secretnumber) / 2.0;
+        double lostpoints = (guess - secretnumber) / (double)2;
         points = points - lostpoints;
     }
     printf("\n");
