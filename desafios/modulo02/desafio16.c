@@ -7,15 +7,11 @@ int main()
     printf("* Print from 1 to 100 by summing 1+2+3... until reach to 100 *\n");
     printf("**************************************************************\n");
 
-    int n1 = 1;
-    int n2 = 2;
-    int n3;
-    int finalresult;
+    int sum = 0;
 
-    while (finalresult <= 100)
+    for (int i = 1; i <= 100; i++)
     {
-        n3 = n1 + n2;
-        finalresult = n3 + (n1++);
-        printf("Current value is %d\n", finalresult);
+        sum = sum + i;
     }
+    printf("The sum is %d", sum);
 }
