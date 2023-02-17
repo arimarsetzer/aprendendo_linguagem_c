@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main()
 {
@@ -8,11 +9,12 @@ int main()
     printf("* Welcome to our guessing game *\n");
     printf("**************************************************************\n");
 
-    int secretnumber = 42;
+    int bignumber = time(0);
+    srand(bignumber);
 
+    int secretnumber = bignumber % 100;
     int guess;
     int tries = 1;
-
     double points = 1000;
 
     while (1)
