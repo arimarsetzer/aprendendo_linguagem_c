@@ -8,8 +8,8 @@ int main()
     printf("**************************************************************\n");
 
     int secretnumber = 42;
+
     int guess;
-    int win = 0;
     int tries = 1;
 
     while (1)
