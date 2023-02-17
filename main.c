@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define GUESSING_NUMBER 5
-
 int main()
 {
     // print game header
@@ -10,12 +8,14 @@ int main()
     printf("**************************************************************\n");
 
     int secretnumber = 42;
-    int guess = 0;
+    int guess;
+    int win = 0;
+    int tries = 1;
 
-    for (int i = 1; i <= GUESSING_NUMBER; i++)
+    while (1)
     {
         printf("\n");
-        printf("Guess %d of %d\n", i, GUESSING_NUMBER);
+        printf("Guess n° %d\n", tries);
         printf("What's your guess? ");
 
         scanf("%d", &guess);
@@ -24,13 +24,11 @@ int main()
         if (guess < 0)
         {
             printf("You can't guess negative number!\n");
-            i--;
             continue;
         }
 
         int sucess = (guess == secretnumber);
         int higher = guess > secretnumber;
-        int smaller = guess < secretnumber;
 
         if (sucess)
         {
@@ -46,7 +44,10 @@ int main()
         {
             printf("Your guess was lower than the correct value.\n");
         }
+
+        tries++;
     }
     printf("\n");
     printf("Game over!!\n");
+    printf("You won in the %d attempt!", tries);
 }
