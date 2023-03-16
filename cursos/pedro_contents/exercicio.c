@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 typedef struct
 {
@@ -37,7 +38,7 @@ int64_t indexOf(IntList *list, int element);
 /**
  * Returns true if a given element is part of the list
  */
-// bool contains(IntList *list, int element);
+bool contains(IntList *list, int element);
 
 /**
  * appends an element at the end of the list

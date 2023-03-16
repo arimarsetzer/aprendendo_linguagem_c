@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 void printIntArray(int *arr, int size)
 {
@@ -48,22 +49,48 @@ IntList *newIntList(int size)
     return list;
 }
 
+/**
+ * Returns the index of the first occurence of an element in the list,
+ * or -1 if no such element exists
+ */
+int64_t indexOf(IntList *list, int element)
+{
+    int64_t indice = 0;
+
+    while (indice < list->length)
+    {
+
+        if (element == list->array[indice])
+        {
+            return indice;
+        }
+        indice += 1;
+    }
+    return -1;
+}
+
+/**
+ * Returns true if a given element is part of the list
+ */
+bool contains(IntList *list, int element)
+{
+    return indexOf(list, element) != -1;
+}
+
 int main()
 {
     int ENTRADA_DO_USUARIO = 10;
 
-    IntList *myList2 = newIntList(ENTRADA_DO_USUARIO);
-    free(myList2->array);
-    free(myList2);
+    IntList *myList = newIntList(ENTRADA_DO_USUARIO);
 
-    int *arr = newIntArray(ENTRADA_DO_USUARIO);
+    myList->array[0] = 10;
+    myList->array[1] = 5;
+    myList->array[2] = 7;
+    myList->array[3] = 90;
 
-    arr[5] = 10;
-    arr[9] = 0xFFFFFFFF;
+    int entradaLista = 50;
 
-    printIntArray(arr, ENTRADA_DO_USUARIO);
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    bool listContain = contains(myList, entradaLista);
 
-    free(arr);
-    return 0;
+    printf("MyList contain %d? %s", entradaLista, listContain ? "true" : "false");
 }
