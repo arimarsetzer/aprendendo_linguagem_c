@@ -27,7 +27,7 @@ int contains(char *str, char *substr)
 int main()
 {
     char string[] = "Exemplo de string";
-    char substring[] = "abcd";
+    char substring[] = "mplo";
 
     if (contains(string, substring))
     {
