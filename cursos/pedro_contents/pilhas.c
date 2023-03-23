@@ -77,20 +77,28 @@ bool contains(IntList *list, int element)
     return indexOf(list, element) != -1;
 }
 
+int length(IntList *list)
+{
+    return list->length;
+}
+
 int main()
 {
-    int ENTRADA_DO_USUARIO = 10;
+
+    int ENTRADA_DO_USUARIO = 5;
 
     IntList *myList = newIntList(ENTRADA_DO_USUARIO);
 
     myList->array[0] = 10;
-    myList->array[1] = 5;
-    myList->array[2] = 7;
-    myList->array[3] = 90;
+    myList->array[1] = 20;
+    myList->array[2] = 30;
+    myList->array[3] = 40;
+    myList->array[4] = 50;
 
     int entradaLista = 50;
 
     bool listContain = contains(myList, entradaLista);
 
-    printf("MyList contain %d? %s", entradaLista, listContain ? "true" : "false");
+    printf("MyList contain %d? %s\n", entradaLista, listContain ? "true" : "false");
+    printf("The length of myList is %d\n", length(myList));
 }
