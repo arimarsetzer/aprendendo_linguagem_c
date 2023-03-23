@@ -95,6 +95,22 @@ int *get(IntList *list, int64_t index)
     return NULL;
 }
 
+void printIntList(IntList *list)
+{
+    printIntArray(list->array, list->length);
+}
+
+/**
+ * appends an element at the end of the list
+ */
+void append(IntList *list, int element)
+{
+    list->length++;
+    list->array = realloc(list->array, list->length * sizeof(int));
+
+    list->array[list->length - 1] = element;
+}
+
 int main()
 {
 
@@ -114,6 +130,12 @@ int main()
     bool listContain = contains(myList, entradaLista);
 
     int *referenceReturn = get(myList, 500);
+
+    printIntList(myList);
+
+    append(myList, 15);
+
+    printIntList(myList);
 
     printf("The returned reference is %p\n", referenceReturn);
     printf("MyList contain %d? %s\n", entradaLista, listContain ? "true" : "false");
