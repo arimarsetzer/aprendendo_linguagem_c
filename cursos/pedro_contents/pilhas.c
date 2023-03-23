@@ -82,23 +82,40 @@ int length(IntList *list)
     return list->length;
 }
 
+/**
+ * Returns a reference to an element of the list at a given index
+ * or NULL if no such element was found
+ */
+int *get(IntList *list, int64_t index)
+{
+    if (index < length(list) && index >= 0)
+    {
+        return &list->array[index];
+    }
+    return NULL;
+}
+
 int main()
 {
 
-    int ENTRADA_DO_USUARIO = 5;
+    int tamanhoDaLista = 10;
 
-    IntList *myList = newIntList(ENTRADA_DO_USUARIO);
+    IntList *myList = newIntList(tamanhoDaLista);
 
     myList->array[0] = 10;
     myList->array[1] = 20;
     myList->array[2] = 30;
     myList->array[3] = 40;
     myList->array[4] = 50;
+    myList->array[8] = 800;
 
     int entradaLista = 50;
 
     bool listContain = contains(myList, entradaLista);
 
+    int *referenceReturn = get(myList, 500);
+
+    printf("The returned reference is %p\n", referenceReturn);
     printf("MyList contain %d? %s\n", entradaLista, listContain ? "true" : "false");
     printf("The length of myList is %d\n", length(myList));
 }
