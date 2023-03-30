@@ -110,6 +110,18 @@ void append(IntList *list, int element)
 
     list->array[list->length - 1] = element;
 }
+/**
+ * Removes the last element at the end of the list, and returns its value
+ */
+int pop(IntList *list)
+{
+    int lastValue = list->array[list->length - 1];
+
+    list->length--;
+    list->array = realloc(list->array, list->length * sizeof(int));
+
+    return lastValue;
+}
 
 int main()
 {
@@ -124,6 +136,7 @@ int main()
     myList->array[3] = 40;
     myList->array[4] = 50;
     myList->array[8] = 800;
+    myList->array[9] = 1000;
 
     int entradaLista = 50;
 
@@ -133,11 +146,15 @@ int main()
 
     printIntList(myList);
 
+    append(myList, 13);
     append(myList, 15);
+    append(myList, 20);
+    int intLastValue = pop(myList);
 
     printIntList(myList);
 
     printf("The returned reference is %p\n", referenceReturn);
     printf("MyList contain %d? %s\n", entradaLista, listContain ? "true" : "false");
     printf("The length of myList is %d\n", length(myList));
+    printf("The value removed was %d\n", intLastValue);
 }
