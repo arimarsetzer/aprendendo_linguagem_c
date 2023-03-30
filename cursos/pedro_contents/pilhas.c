@@ -43,24 +43,24 @@ typedef struct
 
 IntList *newIntList(int size)
 {
-    IntList *list = (IntList *)malloc(sizeof(IntList));
-    list->length = size;
-    list->array = newIntArray(size);
-    return list;
+    IntList *this = (IntList *)malloc(sizeof(IntList));
+    this->length = size;
+    this->array = newIntArray(size);
+    return this;
 }
 
 /**
- * Returns the index of the first occurence of an element in the list,
+ * Returns the index of the first occurence of an element in the this,
  * or -1 if no such element exists
  */
-int64_t indexOf(IntList *list, int element)
+int64_t indexOf(IntList *this, int element)
 {
     int64_t indice = 0;
 
-    while (indice < list->length)
+    while (indice < this->length)
     {
 
-        if (element == list->array[indice])
+        if (element == this->array[indice])
         {
             return indice;
         }
@@ -70,55 +70,55 @@ int64_t indexOf(IntList *list, int element)
 }
 
 /**
- * Returns true if a given element is part of the list
+ * Returns true if a given element is part of the this
  */
-bool contains(IntList *list, int element)
+bool contains(IntList *this, int element)
 {
-    return indexOf(list, element) != -1;
+    return indexOf(this, element) != -1;
 }
 
-int length(IntList *list)
+int length(IntList *this)
 {
-    return list->length;
+    return this->length;
 }
 
 /**
- * Returns a reference to an element of the list at a given index
+ * Returns a reference to an element of the this at a given index
  * or NULL if no such element was found
  */
-int *get(IntList *list, int64_t index)
+int *get(IntList *this, int64_t index)
 {
-    if (index < length(list) && index >= 0)
+    if (index < length(this) && index >= 0)
     {
-        return &list->array[index];
+        return &this->array[index];
     }
     return NULL;
 }
 
-void printIntList(IntList *list)
+void printIntList(IntList *this)
 {
-    printIntArray(list->array, list->length);
+    printIntArray(this->array, this->length);
 }
 
 /**
- * appends an element at the end of the list
+ * appends an element at the end of the this
  */
-void append(IntList *list, int element)
+void append(IntList *this, int element)
 {
-    list->length++;
-    list->array = realloc(list->array, list->length * sizeof(int));
+    this->length++;
+    this->array = realloc(this->array, this->length * sizeof(int));
 
-    list->array[list->length - 1] = element;
+    this->array[this->length - 1] = element;
 }
 /**
- * Removes the last element at the end of the list, and returns its value
+ * Removes the last element at the end of the this, and returns its value
  */
-int pop(IntList *list)
+int pop(IntList *this)
 {
-    int lastValue = list->array[list->length - 1];
+    int lastValue = this->array[this->length - 1];
 
-    list->length--;
-    list->array = realloc(list->array, list->length * sizeof(int));
+    this->length--;
+    this->array = realloc(this->array, this->length * sizeof(int));
 
     return lastValue;
 }
@@ -140,7 +140,7 @@ int main()
 
     int entradaLista = 50;
 
-    bool listContain = contains(myList, entradaLista);
+    bool thisContain = contains(myList, entradaLista);
 
     int *referenceReturn = get(myList, 500);
 
@@ -154,7 +154,7 @@ int main()
     printIntList(myList);
 
     printf("The returned reference is %p\n", referenceReturn);
-    printf("MyList contain %d? %s\n", entradaLista, listContain ? "true" : "false");
+    printf("MyList contain %d? %s\n", entradaLista, thisContain ? "true" : "false");
     printf("The length of myList is %d\n", length(myList));
     printf("The value removed was %d\n", intLastValue);
 }
